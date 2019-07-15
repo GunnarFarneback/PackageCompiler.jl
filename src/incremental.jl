@@ -134,8 +134,9 @@ function compile_incremental(
     systemp = sysimg_folder("sys.a")
     sysout = sysimg_folder("sys.$(Libdl.dlext)")
     code = PrecompileCommand(precompiles)
+    project_dir = dirname(Pkg.Types.Context().env.project_file)
     run_julia(
-        code, O = 3, output_o = systemp, g = 1,
+        code, O = 3, output_o = systemp, g = 1, project = project_dir,
         track_allocation = "none", startup_file = "no", code_coverage = "none"
     )
     build_shared(sysout, systemp, false, sysimg_folder(), verbose, "3", debug, system_compiler, cc_flags)
