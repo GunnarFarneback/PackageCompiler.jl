@@ -97,6 +97,7 @@ get_snoopfile(pkg::Types.PackageSpec) = get_snoopfile(root_path(pkg))
 const relative_snoop_locations = (
     "snoopfile.jl",
     joinpath("snoop", "snoopfile.jl"),
+    joinpath("precompile", "snoopfile.jl"),
     joinpath("test", "snoopfile.jl"),
     joinpath("test", "runtests.jl"),
 )
